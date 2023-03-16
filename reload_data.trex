@@ -1,27 +1,26 @@
- <?xml version="1.0" encoding="utf-8"?> 
-        <manifest manifest-version="0.1" xmlns="http://www.tableau.com/xml/extension_manifest">
-          <dashboard-extension id="com.example.extensions.name" extension-version="0.1.0">
-            <default-locale>en_US</default-locale>
-            <name resource-id="name"/>
-            <description>Extension Description</description>
-            <author name="USERNAME" email="USER@example.com" organization="My Company" website="https://www.example.com"/>
-            <min-api-version>1.0</min-api-version>
-            <source-location>
-              <url>https://lazaro-programacion.github.io/auto_refresh_tableau/</url> 
-            </source-location>
-            <icon>Base64-Encoded ICON</icon>
-            <permissions>
-    	       <permission>full data</permission>
-            </permissions>
-            <context-menu>
-              <configure-context-menu-item />
-            </context-menu>
-          </dashboard-extension>
-          <resources>
-            <resource id="name">
-              <text locale="en_US">name in English</text>
-              <text locale="fr_BE">name in French</text>
-              <text locale="de_DE">name in German</text>
-            </resource>
-          </resources>
-        </manifest>
+<?xml version="1.0" encoding="utf-8"?>
+<manifest manifest-version="0.1" xmlns="http://www.tableau.com/xml/extension_manifest">
+  <dashboard-extension id="com.example.extensions.reloadData" extension-version="0.1.0">
+    <default-locale>en_US</default-locale>
+    <name resource-id="name"/>
+    <description>Una extensión para recargar la base de datos en Tableau con un contador.</description>
+    <author name="Tu Nombre" email="tu-email@example.com" organization="Tu Compañía" website="https://www.example.com"/>
+    <min-api-version>3.0</min-api-version>
+    <source-location>
+      <url>https://lazaro-programacion.github.io/auto_refresh_tableau/</url>
+    </source-location>
+    <icon>Base64-Encoded ICON</icon>
+    <permissions>
+      <permission>full data</permission>
+    </permissions>
+    <context-menu>
+      <configure-context-menu-item />
+    </context-menu>
+  </dashboard-extension>
+  <resources>
+    <resource id="name">
+      <text locale="en_US">Recargar base de datos</text>
+      <text locale="es_ES">Recargar base de datos</text>
+    </resource>
+  </resources>
+</manifest>
