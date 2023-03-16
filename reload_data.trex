@@ -16,10 +16,5 @@
       <configure-context-menu-item />
     </context-menu>
   </dashboard-extension>
-  <resources>
-    <resource id="name">
-      <text locale="en_US">Recargar base de datos</text>
-      <text locale="es_ES">Recargar base de datos</text>
-    </resource>
-  </resources>
+
 </manifest>
