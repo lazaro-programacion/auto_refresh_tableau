@@ -1,57 +1,37 @@
-let selectedDataSource;
-
-tableau.extensions.initializeAsync().then(() => {
-  console.log("Extensión inicializada");
-  loadAvailableDataSources();
-});
-
-function reloadData() {
-  if (selectedDataSource) {
-    selectedDataSource.refreshAsync(tableau.DataSourceRefreshType.Full).then(() => {
-      console.log("Base de datos recargada: " + selectedDataSource.name);
+$(document).ready(function() {
+    tableau.extensions.initializeDialogAsync().then(() => {
+      let timer;
+      try {
+        timer = setInterval(refreshAllDataSources, 5000);
+        console.log("Refresh Started");
+      } catch (err) {
+        clearInterval(timer);
+      }
     });
-  } else {
-    console.log("No se ha seleccionado ninguna base de datos.");
-  }
-}
-
-function startCountdown() {
-  let countdownElement = document.getElementById("countdown");
-  let timeLeft = parseInt(countdownElement.textContent);
-
-  if (timeLeft > 0) {
-    countdownElement.textContent = timeLeft - 1;
-    setTimeout(startCountdown, 1000);
-  } else {
-    reloadData();
-    let timeInput = document.getElementById("timeInput");
-    countdownElement.textContent = timeInput.value; // Restablece el contador al tiempo seleccionado
-  }
-}
-
-function loadAvailableDataSources() {
-  let dataSourceSelect = document.getElementById("dataSourceSelect");
-
-  tableau.extensions.dashboardContent.dashboard.worksheets.forEach((worksheet) => {
-    worksheet.getDataSourcesAsync().then((dataSources) => {
-      dataSources.forEach((dataSource) => {
-        let option = document.createElement("option");
-        option.value = dataSource.id;
-        option.textContent = dataSource.name;
-        dataSourceSelect.appendChild(option);
+  });
+  
+  function refreshAllDataSources() {
+    document.getElementById("refresh").innerHTML = "Refreshing Data Sources";
+    let dataSourceFetchPromises = [];
+    let dashboardDataSources = {};
+    const dashboard = tableau.extensions.dashboardContent.dashboard;
+  
+    dashboard.worksheets.forEach(function(worksheet) {
+      dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
+    });
+  
+    Promise.all(dataSourceFetchPromises)
+      .then(function(fetchResults) {
+        fetchResults.forEach(function(dataSourcesForWorksheet) {
+          dataSourcesForWorksheet.forEach(function(dataSource) {
+            if (!dashboardDataSources[dataSource.id]) {
+              dashboardDataSources[dataSource.id] = dataSource;
+              dataSource.refreshAsync();
+            }
+          });
+        });
+      })
+      .then(() => {
+        document.getElementById("refresh").innerHTML = "";
       });
-    });
-  });
-}
-
-function selectDataSource() {
-  let dataSourceSelect = document.getElementById("dataSourceSelect");
-  let selectedDataSourceId = dataSourceSelect.value;
-
-  tableau.extensions.dashboardContent.dashboard.worksheets.forEach((worksheet) => {
-    worksheet.getDataSourcesAsync().then((dataSources) => {
-      selectedDataSource = dataSources.find((dataSource) => dataSource.id === selectedDataSourceId);
-      console.log("Base de datos seleccionada: " + selectedDataSource.name);
-    });
-  });
-}
+  }

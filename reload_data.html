@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Recargar datos</title>
-    <script src="https://unpkg.com/@tableau/extensions-api@latest/dist/tableau.extensions.umd.js"></script>
-    <script src="reload_data.js"></script>
-  </head>
-  <body>
-    <h1>Recargar datos</h1>
-    <button id="reloadButton">Recargar ahora</button>
-    <script>
-      document.getElementById('reloadButton').addEventListener('click', reloadData);
-    </script>
-  </body>
+<html lang="en">
+
+    <head>
+        <title>Refresh All</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <h1 id="refresh" style="text-align: center;margin:0 auto;font-family: 'Trebuchet MS', sans-serif"></h1>
+        <script src="lib/jquery-3.3.1.min.js"></script>
+        <script src="lib/tableau-extensions-1.latest.min.js"></script>
+        <script src="scripts.js"></script>
+    </body>
+
 </html>
