@@ -5,16 +5,18 @@
     <name resource-id="name"/>
     <description>Una extensión para recargar la base de datos en Tableau con un contador.</description>
     <author name="Tu Nombre" email="tu-email@example.com" organization="Tu Compañía" website="https://www.example.com"/>
-    <min-api-version>3.0</min-api-version>
+    <min-api-version>2.0</min-api-version>
     <source-location>
       <url>https://lazaro-programacion.github.io/auto_refresh_tableau/</url>
     </source-location>
-    <permissions>
-      <permission>full data</permission>
-    </permissions>
     <context-menu>
       <configure-context-menu-item />
     </context-menu>
   </dashboard-extension>
-
+  <resources>
+    <resource id="name">
+      <text locale="en_US">Recargar base de datos</text>
+      <text locale="es_ES">Recargar base de datos</text>
+    </resource>
+  </resources>
 </manifest>
