@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest manifest-version="1.0" xmlns="http://www.tableau.com/xml/manifest">
+<manifest xmlns="http://www.tableausoftware.com/xml/manifest">
   <dashboard-extension id="com.example.reloadData" version="1.0.0">
     <name>Recargar base de datos</name>
     <description>Una extensión para recargar la base de datos en Tableau con un contador.</description>
-    <author name="jose lazaro" email="tu-email@example.com" />
+    <author name="Tu Nombre" email="tu-email@example.com" />
     <min-api-version>3.0</min-api-version>
     <source-location>
-      <url>https://lazaro-programacion.github.io/auto_refresh_tableau/</url>
+      <url>https://lazaro-programacion.github.io/auto_refresh_tableau</url>
     </source-location>
     <permissions>
       <permission name="dataSources" />
