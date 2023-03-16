@@ -12,6 +12,6 @@
     <permission>dataSources</permission>
   </permissions>
   <source-location>
-    <url>http://localhost:8888/reload_data.html</url>
+    <url>https://lazaro-programacion.github.io/auto_refresh_tableau/</url>
   </source-location>
 </manifest>
