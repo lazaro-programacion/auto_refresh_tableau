@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.tableau.com/xml/extension_manifest">
+  <metadata>
+    <id>com.example.reloadData</id>
+    <version>1.0.0</version>
+    <name>Recargar datos</name>
+    <description>Esta extensión permite recargar la base de datos en un dashboard de Tableau.</description>
+    <author>jose_lazaro</author>
+    <website>https://tu-sitio-web.com</website>
+  </metadata>
+  <permissions>
+    <permission>dataSources</permission>
+  </permissions>
+  <source-location>
+    <url>http://localhost:8888/reload_data.html</url>
+  </source-location>
+</manifest>

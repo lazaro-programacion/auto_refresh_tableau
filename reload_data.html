@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recargar datos</title>
+    <script src="https://unpkg.com/@tableau/extensions-api@latest/dist/tableau.extensions.umd.js"></script>
+    <script src="reload_data.js"></script>
+  </head>
+  <body>
+    <h1>Recargar datos</h1>
+    <button id="reloadButton">Recargar ahora</button>
+    <script>
+      document.getElementById('reloadButton').addEventListener('click', reloadData);
+    </script>
+  </body>
+</html>
